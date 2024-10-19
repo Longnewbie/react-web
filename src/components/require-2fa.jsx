@@ -84,8 +84,8 @@ function Require2FA({ user, handleSuccessVerify2FA }) {
 
           <Box>
             <Typography variant="span" sx={{ fontWeight: 'bold', fontSize: '0.9em', color: '#8395a7', '&:hover': { color: '#fdba26' } }}>
-              <a style={{ color: 'inherit', textDecoration: 'none' }} href='https://youtube.com/@trungquandev' target='_blank' rel='noreferrer'>
-                TrungQuanDev - Một Lập Trình Viên
+              <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
+                Team-7FU
               </a>
             </Typography>
           </Box>
