@@ -6,6 +6,11 @@ export const loginAPI = async (data) => {
   return res.data
 }
 
+export const registerAPI = async (data) => {
+  const res = await authorizedAxiosInstance.post(`${API_ROOT}/v1/users/register`, data)
+  return res.data
+}
+
 export const logoutAPI = async (userId) => {
   return await authorizedAxiosInstance.delete(`${API_ROOT}/v1/users/${userId}/logout`)
 }

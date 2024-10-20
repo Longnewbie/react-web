@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import Login from '~/pages/Login'
 import Dashboard from '~/pages/Dashboard'
+import Register from './pages/Register'
 
 const ProtectedRoutes = () => {
   const user = JSON.parse(localStorage.getItem('userInfo'))
@@ -24,6 +25,12 @@ function App() {
       <Route element={<UnauthorizedRoutes />}>
 
         <Route path='/login' element={<Login />} />
+
+      </Route>
+
+      <Route element={<UnauthorizedRoutes />}>
+
+        <Route path='/register' element={<Register />} />
 
       </Route>
 

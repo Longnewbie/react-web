@@ -10,26 +10,23 @@ import Typography from '@mui/material/Typography'
 import HutechIcon from '../assets/hutechLogo.png'
 import bg from '../assets/bg.jpg'
 import { useNavigate } from 'react-router-dom'
-import { loginAPI } from '~/apis'
+import { registerAPI } from '~/apis'
+import { toast } from 'react-toastify'
 
-function Login() {
+function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm()
   const navigate = useNavigate()
-
-  const submitLogIn = async (data) => {
+  const BackLogIn = async (data) => {
     // lấy dữ liệu từ form
-    const { email, password } = data
+    const { username, email, password } = data
     // gọi api
-    const user = await loginAPI({ email, password })
+    await registerAPI({ email, password, username })
     // lưu thông tin của User vào Localstorage phía fe
-    localStorage.setItem('userInfo', JSON.stringify(user))
+    // localStorage.setItem('userInfo', JSON.stringify(user))
     // điều hướng tới trang Dashboard
-    navigate('/dashboard')
-  }
-
-  const navigateRegister = () => {
-    navigate('/register')
-  }
+    toast.success('Register successfully!')
+    navigate('/login')
+}
 
   return (
     <Box sx={{
@@ -44,7 +41,7 @@ function Login() {
       backgroundPosition: 'center',
       boxShadow: 'inset 0 0 0 2000px rgba(0, 0, 0, 0.4)'
     }}>
-      <form onSubmit={handleSubmit(submitLogIn)}>
+      <form onSubmit={handleSubmit(BackLogIn)}>
         <Zoom in={true} style={{ transitionDelay: '200ms' }}>
           <MuiCard sx={{ minWidth: 480, maxWidth: 480, marginTop: '6em', p: '2em 1em', borderRadius: 2 }}>
             <Box sx={{ width: '70px', bgcolor: 'white', margin: '0 auto' }}>
@@ -53,6 +50,24 @@ function Login() {
               </a>
             </Box>
             <Box sx={{ padding: '0 1em 1em 1em' }}>
+              <Box sx={{ marginTop: '1.2em' }}>
+                <TextField
+                  autoFocus
+                  fullWidth
+                  label="Enter username..."
+                  type="text"
+                  variant="outlined"
+                  error={!!errors.username}
+                  {...register('username', {
+                    required: 'This field is required.'
+                  })}
+                />
+                {errors.username &&
+                  <Alert severity="error" sx={{ mt: '0.7em', '.MuiAlert-message': { overflow: 'hidden' } }}>
+                    {errors.username.message}
+                  </Alert>
+                }
+              </Box>
               <Box sx={{ marginTop: '1.2em' }}>
                 <TextField
                   autoFocus
@@ -98,19 +113,7 @@ function Login() {
                 size="large"
                 fullWidth
               >
-                Login
-              </Button>
-            </CardActions>
-            <CardActions>
-              <Button
-                type="submit"
-                variant="contained"
-                color="error"
-                size="large"
-                fullWidth
-                onClick={navigateRegister}
-              >
-                Register
+                 Register
               </Button>
             </CardActions>
           </MuiCard>
@@ -120,4 +123,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register
