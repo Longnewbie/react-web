@@ -96,7 +96,7 @@ function Dashboard() {
         <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
           <img
             style={{ width: '100%', height: '180px', borderRadius: '6px', objectFit: 'cover' }}
-            src="src/assets/bghutech.jpg"
+            src="src/assets/bghutech1.png"
             alt="Team-7FU"
           />
         </a>
