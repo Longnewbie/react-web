@@ -8,6 +8,7 @@ import Alert from '@mui/material/Alert'
 import { useForm } from 'react-hook-form'
 import Typography from '@mui/material/Typography'
 import HutechIcon from '../assets/hutechLogo.png'
+import bg from '../assets/bg.jpg'
 import { useNavigate } from 'react-router-dom'
 import { loginAPI } from '~/apis'
 
@@ -33,7 +34,7 @@ function Login() {
       minHeight: '100vh',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      background: 'url("src/assets/bg1.png")',
+      background: `url(${bg})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',

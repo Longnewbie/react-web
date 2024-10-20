@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { fetchUserAPI, logoutAPI } from '~/apis'
 import Setup2FA from '~/components/setup-2fa'
 import Require2FA from '~/components/require-2fa'
+import bghutech from '../assets/bghutech.jpg'
 
 function Dashboard() {
   const [user, setUser] = useState(null)
@@ -96,7 +97,7 @@ function Dashboard() {
         <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
           <img
             style={{ width: '100%', height: '180px', borderRadius: '6px', objectFit: 'cover' }}
-            src="src/assets/bghutech1.png"
+            src={bghutech}
             alt="Team-7FU"
           />
         </a>
